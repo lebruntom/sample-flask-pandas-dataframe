@@ -272,6 +272,9 @@ password : 12345678
 ### vos jobs sont maintenant chainés
 ![Vue.](https://github.com/lebruntom/sample-flask-pandas-dataframe/blob/main/media/vue.png)
 
+### visualisation dans goland
+![Goland.](https://github.com/lebruntom/sample-flask-pandas-dataframe/blob/main/media/golan.png)
+
 ## Webwook
 
 ### se rendre sur le repo
@@ -291,3 +294,5 @@ application/json
 
 
 ![Webhook.](https://github.com/lebruntom/sample-flask-pandas-dataframe/blob/main/media/webhook.png)
+
+
