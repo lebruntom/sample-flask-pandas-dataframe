@@ -1,12 +1,19 @@
 # Flask Pandas Dataframe
 
-Simple Flask project that loads pandas dataframe into the database and shows the information on a page. **[Flask Pandas Dataframe](https://blog.appseed.us/flask-pandas-dataframe-how-to-code/)** is a `one-file` project that might help beginners to understand some basic Flask concepts:  
+Simple Flask project that loads pandas dataframe into the database and shows the information on a page. **[Flask Pandas Dataframe](https://blog.appseed.us/flask-pandas-dataframe-how-to-code/)** is a `one-file` project that might help beginners to understand some basic Flask concepts:
 
 - Create a simple Flask [app](/app.py)
 - Download a public [pandas](./titanic.csv) DF
 - Create an SQLite DB and a table to save the information
 - Load pandas in DB using a new `custom command`
 - Visualize the data in the browser
+
+<br />
+
+> Links
+
+- 👉 [Support](https://appseed.us/support/) - Provided by [AppSeed](https://appseed.us/)
+- 👉 More [Open-Source Starters](https://appseed.us/admin-dashboards/open-source/) - actively supported and versioned
 
 <br />
 
@@ -67,11 +74,11 @@ $ # access the app in the browser: http://localhost:5000
 
 ## Dependencies
 
-- [Flask](https://flask.palletsprojects.com/en/1.1.x/) - the framework used  
+- [Flask](https://flask.palletsprojects.com/en/1.1.x/) - the framework used
 - [Pandas](https://pandas.pydata.org/) - an amazing `data analysis` library
 - [SQLAlchemy](https://www.sqlalchemy.org/) - Python SQL Toolkit and ORM
 - [Flask-SqlAlchemy](https://flask-sqlalchemy.palletsprojects.com/en/2.x/) - extension for Flask that adds support for SQLAlchemy
-- [Requests](https://pypi.org/project/requests/) - simple HTTP library. 
+- [Requests](https://pypi.org/project/requests/) - simple HTTP library.
 
 ```bash
 $ # Virtualenv modules installation (Unix based systems)
@@ -127,7 +134,7 @@ The dataset is downloaded from a remote [location](https://static.appseed.us/dat
 
 ## Process data
 
-The RAW dataset has ~900 rows and we can inspect it with ease using `pandas` library 
+The RAW dataset has ~900 rows and we can inspect it with ease using `pandas` library
 
 ```python
 >>> import pandas as pd
@@ -172,7 +179,7 @@ Embarked        object
 
 ## Prepare the `storage`
 
-Integrate SQLAlchemy and define a table to load the data. 
+Integrate SQLAlchemy and define a table to load the data.
 
 ```python
 # Store the Titanic sad stats
@@ -192,7 +199,7 @@ class Data(db.Model):
 
 <br />
 
-Create the SQLite database and the new table via `Flask CLI`: 
+Create the SQLite database and the new table via `Flask CLI`:
 
 ```bash
 $ flask shell
@@ -208,7 +215,7 @@ At this point, we can inspect the database using [SQLiteBrowser](https://sqliteb
 
 ## Load Data
 
-The information will be loaded into the database via a `custom command` = **load-data**. The command expects the `input file` as argument (CSV format). 
+The information will be loaded into the database via a `custom command` = **load-data**. The command expects the `input file` as argument (CSV format).
 
 ```python
 # New import
@@ -247,7 +254,7 @@ Commands:
 
 ## Links & Resources
 
-- [Flask](https://flask.palletsprojects.com/en/1.1.x/) - the framework used  
+- [Flask](https://flask.palletsprojects.com/en/1.1.x/) - the framework used
 - [Pandas](https://pandas.pydata.org/) - an amazing `data analysis` library
 - [AppSeed](https://appseed.us/) - for support annd more samples
 
