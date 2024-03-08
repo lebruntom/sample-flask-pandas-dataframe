@@ -126,7 +126,9 @@ http://34.163.167.253:31201/
 > dans pattern to test mettre Rows = 0
 > cocher dans pattern matching rules not et substring
 
-## Jenkins 
+
+## test pour vérifier si l'application affiche des data
+## Jenkins
 
 ### Se rendre sur l'url suivante
 http://34.163.167.253:32500/
@@ -138,3 +140,117 @@ password : 12345678
 ### Cliquer sur "nouveau item"
 
 ### le nommer "flask-panda-jmeter" et choisir "construire un projet free-style"
+
+### Gestion de code source
+> selectionnez git 
+> mettre l'url https://github.com/lebruntom/sample-flask-pandas-dataframe.git
+> en branches to build mettre main
+
+### Etapes du build
+> selectionnez Exécuter un script shell
+> entrer la ligne 
+
+```bash
+jmeter -JUSER=1 -JDELAY=1 -Jjmeter.save.saveservice.output_format=xml -Jjmeter.save.saveservice.response_data.on_error=true -n -t flask-pandas_test_plan.jmx  -l testresult.jtl
+```
+### premiere action à la suite du build
+> selectionnez "Console output (build log) parsing"
+> puis selectionnez use project rule et entrez "parserules"
+
+### seconde action à la suite du build
+> selectionnez Publish Performance test result report
+> dans "Source data files (autodetects format):" entrez "testresult.jtl"
+
+### sauvegarde du job
+> cliquez sur sauvegarder
+
+### run le job
+> cliquez sur lancer un build
+
+## job test
+
+### Se rendre sur l'url suivante
+http://34.163.167.253:32500/
+
+### Se connecter avec
+identifiant : admin
+password : 12345678
+
+### Cliquer sur "nouveau item"
+
+### le nommer "flask-panda-docker-build" et choisir "construire un projet free-style"
+
+### Gestion de code source
+> selectionnez git
+> mettre l'url https://github.com/lebruntom/sample-flask-pandas-dataframe.git
+> en branches to build mettre main
+
+### Ce qui déclenche le build
+> selectionnez "GitHub hook trigger for GITScm polling"
+
+
+### Environnements de Build
+> selectionnez "Use secret text(s) or file(s)"
+> Username Variable : USERNAME
+> Password Variable : PASSWORD
+> Ajoutez egalement vos credentials
+
+### Étapes du build
+> selectionnez Exécuter un script shell
+> entrer la ligne 
+```bash
+echo '
+#docker build -t flask-panda .
+#docker run -d --name flask-panda -p 31201:31201 flask-panda
+
+#docker login -u omtee 
+#docker image tag flask-panda:latest omtee/flask-pandas:latest
+#docker push omtee/flask-panda:latest'
+```
+
+### Actions à la suite du build
+> selectionnez "Construire d'autres projets (projets en aval)"
+> selectionnez le job créé précedement "flask-panda-jmeter"
+
+### sauvegarde du job
+> cliquez sur sauvegarder
+
+### run le job
+> cliquez sur lancer un build
+
+### Chainage des jobs jenkins 
+
+### Se rendre sur l'url suivante
+http://34.163.167.253:32500/
+
+### Se connecter avec
+identifiant : admin
+password : 12345678
+
+### Cliquer sur "nouvelle vue"
+
+### la nommer "flask-panda-pipeline" et choisir "build pipeline view"
+
+### Pipeline Flow
+> dans "Select Initial Job"
+> Selectionnez le job créé à l'instant "flask-panda-docker-build"
+
+### sauvegarde de la vue
+> cliquez sur sauvegarder
+
+### vos jobs sont maintenant chainés
+
+## Webwook
+
+### se rendre sur le repo
+https://github.com/lebruntom/sample-flask-pandas-dataframe
+
+### cliquer sur settings puis webhooks et add webhook
+
+### payload url
+> entrer http://34.163.167.253:32500/github-webhook/
+
+### Content type
+application/json
+
+### sauvegarder votre webhook
