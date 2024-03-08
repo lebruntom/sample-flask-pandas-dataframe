@@ -85,3 +85,56 @@ docker run -d --name flask-panda -p 31201:31201 flask-panda
 http://34.163.167.253:31201/
 
 
+## Jmeter
+
+### ouvir Jmetter
+
+### Dans test plan créér 4 variables
+>Name: IP, Value: ${__P(IP,34.163.167.253)}
+>Name: PORT, Value: ${__P(PORT,31201)}
+> Name: USER, Value: ${__P(USER,5)}
+>Name: DELAY, Value: ${__P(DELAY,60)}
+
+### ajout de "http request defaults"
+> clique droit sur test plan
+> add
+> Config Element "Http request defaults"
+> dans "server Name or ip" mettre ${IP}
+> dans "Port number" mettre ${PORT}
+
+### Ajout de thread group
+> clique droit sur test plan
+> add
+> Threads (user)
+> Thread group
+> dans "number of threads (user)" mettre ${USER}
+> dans "Ramp up period (seconds" mettre ${DELAY}
+> dans "Loop count" mettre 1
+
+### Ajout http request
+>clique droit sur "thread group"
+> add 
+> sampler
+> http request
+> dans path mettre /data
+
+### ajout response assertion
+> clique droit http request
+> add
+> assertions
+> Response assertion
+> dans pattern to test mettre Rows = 0
+> cocher dans pattern matching rules not et substring
+
+## Jenkins 
+
+### Se rendre sur l'url suivante
+http://34.163.167.253:32500/
+
+### Se connecter avec 
+identifiant : admin
+password : 12345678
+
+### Cliquer sur "nouveau item"
+
+### le nommer "flask-panda-jmeter" et choisir "construire un projet free-style"
