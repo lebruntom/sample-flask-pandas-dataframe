@@ -92,10 +92,10 @@ http://34.163.167.253:31201/
 ### ouvir Jmetter
 
 ### Dans test plan créér 4 variables
->Name: IP, Value: ${__P(IP,34.163.167.253)}
->Name: PORT, Value: ${__P(PORT,31201)}
-> Name: USER, Value: ${__P(USER,5)}
->Name: DELAY, Value: ${__P(DELAY,60)}
+>Name: IP, Value: "${__P(IP,34.163.167.253)}"
+>Name: PORT, Value: "${__P(PORT,31201)}"
+> Name: USER, Value: "${__P(USER,5)}"
+>Name: DELAY, Value: "${__P(DELAY,60)}"
 
 ### ajout de "http request defaults"
 > clique droit sur test plan
