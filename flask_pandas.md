@@ -273,7 +273,7 @@ password : 12345678
 ![Vue.](https://github.com/lebruntom/sample-flask-pandas-dataframe/blob/main/media/vue.png)
 
 ### visualisation dans goland
-![Goland.](https://github.com/lebruntom/sample-flask-pandas-dataframe/blob/main/media/golan.png)
+![Goland.](https://github.com/lebruntom/sample-flask-pandas-dataframe/blob/main/media/goland.png)
 
 ## Webwook
 
