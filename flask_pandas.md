@@ -84,6 +84,8 @@ docker run -d --name flask-panda -p 31201:31201 flask-panda
 ### on peut maintenant s'y connecter à l'adresse
 http://34.163.167.253:31201/
 
+![Docker.](https://github.com/lebruntom/sample-flask-pandas-dataframe/blob/main/media/docker.png)
+![Result.](https://github.com/lebruntom/sample-flask-pandas-dataframe/blob/main/media/result.png)
 
 ## Jmeter
 
@@ -126,6 +128,7 @@ http://34.163.167.253:31201/
 > dans pattern to test mettre Rows = 0
 > cocher dans pattern matching rules not et substring
 
+![Jmeter.](https://github.com/lebruntom/sample-flask-pandas-dataframe/blob/main/media/jmeter.png)
 
 ## test pour vérifier si l'application affiche des data
 ## Jenkins
@@ -166,6 +169,10 @@ jmeter -JUSER=1 -JDELAY=1 -Jjmeter.save.saveservice.output_format=xml -Jjmeter.s
 
 ### run le job
 > cliquez sur lancer un build
+
+![Job.](https://github.com/lebruntom/sample-flask-pandas-dataframe/blob/main/media/job.png)
+
+
 
 ## job test
 
@@ -218,6 +225,9 @@ echo '
 ### run le job
 > cliquez sur lancer un build
 
+![Job2.](https://github.com/lebruntom/sample-flask-pandas-dataframe/blob/main/media/job2.png)
+
+
 ### Chainage des jobs jenkins 
 
 ### Se rendre sur l'url suivante
@@ -239,6 +249,7 @@ password : 12345678
 > cliquez sur sauvegarder
 
 ### vos jobs sont maintenant chainés
+![Vue.](https://github.com/lebruntom/sample-flask-pandas-dataframe/blob/main/media/vue.png)
 
 ## Webwook
 
@@ -254,3 +265,5 @@ https://github.com/lebruntom/sample-flask-pandas-dataframe
 application/json
 
 ### sauvegarder votre webhook
+
+![Webhook.](https://github.com/lebruntom/sample-flask-pandas-dataframe/blob/main/media/webhook.png)
